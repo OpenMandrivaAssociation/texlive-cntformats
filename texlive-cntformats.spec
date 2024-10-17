@@ -3,7 +3,7 @@ Version:	34668
 Release:	2
 Summary:	A different way to read counters
 Group:		Publishing
-URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/cntformats
+URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/cntformats
 License:	lppl1.3
 Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/cntformats.r%{version}.tar.xz
 Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/cntformats.doc.r%{version}.tar.xz
