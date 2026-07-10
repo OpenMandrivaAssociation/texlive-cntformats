@@ -1,37 +1,24 @@
-Name:		texlive-cntformats
-Version:	34668
-Release:	2
+%global tl_name cntformats
+%global tl_revision 34668
+
+Name:		texlive-%{tl_name}
+Epoch:		1
+Version:	0.7
+Release:	%{tl_revision}.1
 Summary:	A different way to read counters
 Group:		Publishing
 URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/cntformats
 License:	lppl1.3
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/cntformats.r%{version}.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/cntformats.doc.r%{version}.tar.xz
+Source0:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/cntformats.r%{tl_revision}.tar.xz
+Source1:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/cntformats.doc.r%{tl_revision}.tar.xz
 BuildArch:	noarch
+BuildSystem:	texlive
 BuildRequires:	texlive-tlpkg
-Requires(pre):	texlive-tlpkg
-Requires(post):	texlive-kpathsea
+%texlive_base_requires
+Provides:	texlive(%{tl_name}) = %{tl_revision}
 
 %description
-The package offers package or class authors a way to format
-counters with 'patterns'. These patterns do not affect 'normal'
-LaTeX treatment of counters.
+The package offers package or class authors a way to format counters
+with 'patterns'. These patterns do not affect 'normal' LaTeX treatment
+of counters.
 
-%prep
-%autosetup -p1 -c -a1
-
-%build
-
-%install
-rm -rf tlpkg
-mkdir -p %{buildroot}%{_texmfdistdir}
-cp -a * %{buildroot}%{_texmfdistdir}
-
-%files
-%{_texmfdistdir}/tex/latex/cntformats
-%doc %{_texmfdistdir}/doc/latex/cntformats
-
-%post -p %{_sbindir}/texlive.post
-
-%postun
-[ "$1" -eq 0 ] && %{_sbindir}/texlive.post
